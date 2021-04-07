@@ -19,6 +19,7 @@ class CustomTheme {
   static const Color lightGreen = Color.fromRGBO(115, 214, 161, 0.95);
   static const Color borderGrey = Color(0xFFDADFE7);
   static const Color lightBlue = Color(0xFF4EC3F3);
+  static const Color lighterBlue = Color(0xFF4EC2F3);
 
   static const TextStyle title = TextStyle(color: grey, fontSize: 36);
   static const TextStyle titleLight = TextStyle(color: grey, fontSize: 14);
