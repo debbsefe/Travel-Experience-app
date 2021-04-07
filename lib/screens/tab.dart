@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_experience/screens/search.dart';
 import '../theme.dart';
+import 'account.dart';
 import 'home.dart';
 
 class HomeTab extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _children = [Home(), Search(), Search()];
+    final List<Widget> _children = [Home(), Search(), Account()];
 
     return Scaffold(
         body: _children[_currentIndex],
