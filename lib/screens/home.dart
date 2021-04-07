@@ -11,12 +11,13 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Height(10),
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -48,19 +49,18 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(
-                child: Text('Explore sunbathing',
-                    style: CustomTheme.title.copyWith(fontSize: 32)),
+              Height(10),
+              Text('Explore sunbathing',
+                  style: CustomTheme.title.copyWith(fontSize: 32)),
+              Height(10),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Text(
+                    'Here you can explore our most popular and recommended sunbathing locations',
+                    textAlign: TextAlign.start,
+                    style: CustomTheme.bodyText),
               ),
-              Expanded(
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  child: Text(
-                      'Here you can explore our most popular and recommended sunbathing locations',
-                      textAlign: TextAlign.start,
-                      style: CustomTheme.bodyText),
-                ),
-              ),
+              Height(10),
               Expanded(
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,

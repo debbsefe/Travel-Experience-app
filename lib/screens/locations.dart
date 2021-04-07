@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:travel_experience/theme.dart';
 import 'package:travel_experience/widgets/sizedbox.dart';
 
+import 'location_detail.dart';
+
 class TopLocations extends StatefulWidget {
   @override
   _TopLocationsState createState() => _TopLocationsState();
@@ -55,44 +57,53 @@ class SlideItem extends StatelessWidget {
     return Container(
       child: Column(
         children: <Widget>[
-          Container(
-            margin: const EdgeInsets.all(5),
-            padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 5),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            child: Column(
-              children: [
-                Image.asset(slideList[index].image, height: 100),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Width(5),
-                        Text(
-                          slideList[index].title,
-                          style: CustomTheme.label
-                              .copyWith(fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Width(5),
-                        Text(slideList[index].subtitle,
-                            style: CustomTheme.subtitleLight),
-                        Width(10),
-                        Text(slideList[index].amount,
-                            style: CustomTheme.subtitleLight
-                                .copyWith(color: CustomTheme.lightGreen))
-                      ],
-                    )
-                  ],
-                ),
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          LocationDetail(image: slideList[index].image)));
+            },
+            child: Container(
+              margin: const EdgeInsets.fromLTRB(0, 5, 10, 5),
+              padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 5),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Column(
+                children: [
+                  Image.asset(slideList[index].image, height: 100),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Width(5),
+                          Text(
+                            slideList[index].title,
+                            style: CustomTheme.label
+                                .copyWith(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Width(5),
+                          Text(slideList[index].subtitle,
+                              style: CustomTheme.subtitleLight),
+                          Width(10),
+                          Text(slideList[index].amount,
+                              style: CustomTheme.subtitleLight
+                                  .copyWith(color: CustomTheme.lightGreen))
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

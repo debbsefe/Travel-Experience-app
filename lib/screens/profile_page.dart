@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_experience/screens/tab.dart';
 import 'package:travel_experience/theme.dart';
 import 'package:travel_experience/widgets/sizedbox.dart';
 
@@ -143,7 +144,7 @@ class _ProfilePageState extends State<ProfilePage>
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Home()));
+                                    builder: (context) => HomeTab()));
                           },
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(75),
@@ -155,7 +156,12 @@ class _ProfilePageState extends State<ProfilePage>
                       ),
                       Height(20),
                       FlatButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeTab()));
+                        },
                         child:
                             Text('Skip for now', style: CustomTheme.subtitle),
                       ),
