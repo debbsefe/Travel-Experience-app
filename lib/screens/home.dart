@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_experience/widgets/input_decoration.dart';
+import 'package:travel_experience/widgets/sizedbox.dart';
 
 import '../theme.dart';
 import 'locations.dart';
@@ -10,19 +11,21 @@ class Home extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
-          margin: const EdgeInsets.all(20),
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Height(10),
               Expanded(
+                flex: 1,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 3),
+                          padding: const EdgeInsets.all(8),
                           decoration: const BoxDecoration(
                               color: CustomTheme.pink, shape: BoxShape.circle),
                           child: Image.asset(
@@ -30,7 +33,8 @@ class Home extends StatelessWidget {
                             height: 32,
                           ),
                         ),
-                        const Text('Hi, Dera'),
+                        Width(10),
+                        const Text('Hi, Dera', style: CustomTheme.titleLight),
                       ],
                     ),
                     Container(
@@ -45,18 +49,18 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(
-                  child: Text('Explore eateries',
-                      style: CustomTheme.title.copyWith(fontSize: 32))),
-              Expanded(
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text(
-                      'Here you can explore our most popular and recommended sunbathing locations',
-                      textAlign: TextAlign.justify,
-                      style: CustomTheme.bodyText),
-                ),
+              Height(10),
+              Text('Explore sunbathing',
+                  style: CustomTheme.title.copyWith(fontSize: 32)),
+              Height(10),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Text(
+                    'Here you can explore our most popular and recommended sunbathing locations',
+                    textAlign: TextAlign.start,
+                    style: CustomTheme.bodyText),
               ),
+              Height(10),
               Expanded(
                 child: TextFormField(
                   keyboardType: TextInputType.emailAddress,
@@ -74,6 +78,78 @@ class Home extends StatelessWidget {
                   onChanged: (String val) {},
                 ),
               ),
+              Expanded(
+                flex: 4,
+                child: tabs(),
+              ),
+              Text(
+                'Places you might like',
+                style: CustomTheme.subtitle2.copyWith(color: CustomTheme.grey6),
+              ),
+              Height(10),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset('assets/images/place1.png', height: 60),
+                    Width(10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Jabi Boat Club',
+                          style: CustomTheme.label,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'Abuja, Nigeria',
+                              style: CustomTheme.subtitleLight,
+                            ),
+                            Width(10),
+                            Text('N40,000/night',
+                                style: CustomTheme.subtitleLight
+                                    .copyWith(color: CustomTheme.lightGreen))
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Height(10),
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Image.asset('assets/images/place1.png', height: 60),
+                    Width(10),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Jabi Boat Club',
+                          style: CustomTheme.label,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              'Abuja, Nigeria',
+                              style: CustomTheme.subtitleLight,
+                            ),
+                            Width(10),
+                            Text('N40,000/night',
+                                style: CustomTheme.subtitleLight
+                                    .copyWith(color: CustomTheme.lightGreen))
+                          ],
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -118,12 +194,39 @@ DefaultTabController tabs() {
               ),
             ),
           ],
-          indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(width: 1.0, color: CustomTheme.lightBlue),
-            //insets: EdgeInsets.symmetric(horizontal: 50.0)
-          ),
+          indicator:
+              CircleTabIndicator(color: CustomTheme.lightBlue, radius: 5),
           labelStyle: CustomTheme.label,
           unselectedLabelStyle: CustomTheme.labelLight,
+          labelColor: CustomTheme.grey6,
+          unselectedLabelColor: CustomTheme.grey7,
         ),
       ));
+}
+
+class CircleTabIndicator extends Decoration {
+  final BoxPainter _painter;
+
+  CircleTabIndicator({@required Color color, @required double radius})
+      : _painter = _CirclePainter(color, radius);
+
+  @override
+  BoxPainter createBoxPainter([onChanged]) => _painter;
+}
+
+class _CirclePainter extends BoxPainter {
+  final Paint _paint;
+  final double radius;
+
+  _CirclePainter(Color color, this.radius)
+      : _paint = Paint()
+          ..color = color
+          ..isAntiAlias = true;
+
+  @override
+  void paint(Canvas canvas, Offset offset, ImageConfiguration cfg) {
+    final Offset circleOffset =
+        offset + Offset(cfg.size.width / 2, cfg.size.height - radius);
+    canvas.drawCircle(circleOffset, radius, _paint);
+  }
 }
