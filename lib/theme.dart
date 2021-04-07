@@ -20,6 +20,12 @@ class CustomTheme {
   static const Color borderGrey = Color(0xFFDADFE7);
   static const Color lightBlue = Color(0xFF4EC3F3);
   static const Color lighterBlue = Color(0xFF4EC2F3);
+  static const Color faintBlue = Color(0xFFECF6FB);
+  static const Color faintPurple = Color(0xFFE6D7F2);
+  static const Color faintGreen = Color(0xFFDFF5EB);
+  static const Color faintOrange = Color(0xFFF9DBD4);
+
+  static const Color orange = Color(0xFFF37F4E);
 
   static const TextStyle title = TextStyle(color: grey, fontSize: 36);
   static const TextStyle titleLight = TextStyle(color: grey, fontSize: 14);
