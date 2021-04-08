@@ -29,10 +29,14 @@ class CustomTheme {
 
   static const TextStyle title = TextStyle(color: grey, fontSize: 36);
   static const TextStyle titleLight = TextStyle(color: grey, fontSize: 14);
+  static const TextStyle title2 =
+      TextStyle(color: grey6, fontSize: 16, fontWeight: FontWeight.w600);
 
   static const TextStyle bodyText = TextStyle(color: grey2, fontSize: 16);
   static const TextStyle buttonText =
       TextStyle(color: almostWhite, fontSize: 16, fontWeight: FontWeight.bold);
+  static const TextStyle greenText =
+      TextStyle(color: lightGreen, fontSize: 14, fontWeight: FontWeight.bold);
   static const TextStyle subtitle = TextStyle(color: grey3, fontSize: 14);
   static const TextStyle subtitle2 =
       TextStyle(color: grey4, fontSize: 14, fontWeight: FontWeight.w600);

@@ -54,6 +54,7 @@ class SlideItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var tag = UniqueKey();
     return Container(
       child: Column(
         children: <Widget>[
@@ -62,8 +63,12 @@ class SlideItem extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          LocationDetail(image: slideList[index].image)));
+                      builder: (context) => LocationDetail(
+                            image: slideList[index].image,
+                            title: slideList[index].title,
+                            amount: slideList[index].amount,
+                            tag: tag,
+                          )));
             },
             child: Container(
               margin: const EdgeInsets.fromLTRB(0, 5, 10, 5),
@@ -74,7 +79,9 @@ class SlideItem extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Image.asset(slideList[index].image, height: 100),
+                  Hero(
+                      tag: tag,
+                      child: Image.asset(slideList[index].image, height: 100)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
