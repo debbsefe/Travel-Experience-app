@@ -3,8 +3,6 @@ import 'package:travel_experience/screens/tab.dart';
 import 'package:travel_experience/theme.dart';
 import 'package:travel_experience/widgets/sizedbox.dart';
 
-import 'home.dart';
-
 class ListItem {
   bool isSelected = false;
   final String text;
