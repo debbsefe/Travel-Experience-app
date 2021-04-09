@@ -227,7 +227,7 @@ class _LocationDetailState extends State<LocationDetail>
                 itemExtent: 50.0,
                 delegate: SliverChildListDelegate([
                   Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 105),
+                    margin: const EdgeInsets.symmetric(horizontal: 95),
                     child: FlatButton(
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 60),

@@ -4,7 +4,33 @@ import 'package:travel_experience/widgets/sizedbox.dart';
 
 import '../theme.dart';
 
-class Search extends StatelessWidget {
+class Slide {
+  final String image;
+  final String title, subtitle, amount;
+
+  Slide({this.title, this.subtitle, this.amount, @required this.image});
+}
+
+class Search extends StatefulWidget {
+  @override
+  _SearchState createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  final slideList = [
+    Slide(
+      amount: 'N40,000/night',
+      image: 'assets/images/search1.png',
+      title: 'Rice Bowl Resturant',
+      subtitle: 'Abuja, Nigeria',
+    ),
+    Slide(
+      amount: 'N50,000/night',
+      image: 'assets/images/search1.png',
+      title: 'Rice Bowl Resturant',
+      subtitle: 'Abuja, Nigeria',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,19 +57,27 @@ class Search extends StatelessWidget {
               textAlign: TextAlign.start,
               style: CustomTheme.subtitle2.copyWith(color: CustomTheme.grey6)),
           Height(20),
-          SearchWidget(
-            amount: 'N40,000/night',
-            image: 'assets/images/search1.png',
-            title: 'Rice Bowl Resturant',
-            subtitle: 'Abuja, Nigeria',
-          ),
-          Height(20),
-          SearchWidget(
-            amount: 'N40,000/night',
-            image: 'assets/images/search1.png',
-            title: 'Rice Bowl Resturant',
-            subtitle: 'Abuja, Nigeria',
-          )
+          Column(
+              children: slideList.asMap().entries.map((entry) {
+            var e = entry.value;
+            return GestureDetector(
+              key: UniqueKey(),
+              onTap: () => {
+                setState(() {
+                  slideList.removeAt(entry.key);
+                })
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                child: SearchWidget(
+                  amount: e.amount,
+                  image: e.image,
+                  title: e.title,
+                  subtitle: e.subtitle,
+                ),
+              ),
+            );
+          }).toList()),
         ]),
       )),
     );
