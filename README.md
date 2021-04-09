@@ -1,16 +1,23 @@
 # travel_experience
 
-A new Flutter project.
+A travel app that allows you to explore and enjoy different places and culture in the world
 
-## Getting Started
+## APP SCREENSHOTS
 
-This project is a starting point for a Flutter application.
+![Profile](https://github.com/debbsefe/Travel-Experience-app/blob/media/1.jpeg?raw=true)
 
-A few resources to get you started if this is your first Flutter project:
+![Home](https://github.com/debbsefe/Travel-Experience-app/blob/media/2.jpeg?raw=true)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![Location-Detail](https://github.com/debbsefe/Travel-Experience-app/blob/media/3.jpeg?raw=true)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Location-Detail](https://github.com/debbsefe/Travel-Experience-app/blob/media/4.jpeg?raw=true)
+
+![Location-Detail](https://github.com/debbsefe/Travel-Experience-app/blob/media/5.jpeg?raw=true)
+
+![Search](https://github.com/debbsefe/Travel-Experience-app/blob/media/6.jpeg?raw=true)
+
+![Account](https://github.com/debbsefe/Travel-Experience-app/blob/media/7.jpeg?raw=true)
+
+## DOWNLOAD
+
+You can download the apk release here =>https://github.com/debbsefe/Travel-Experience-app/releases/download/v1.0/travelX.apk and install on your android device
